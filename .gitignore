@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PostmanAPI/packages
+/PostmanAPI/PostmanAPI/bin
+/PostmanAPI/PostmanAPI/obj/Debug
+/PostmanAPI/.vs
+/PostmanAPI/PostmanAPI/Web.Release.config
+/PostmanAPI/PostmanAPI/Web.Debug.config
