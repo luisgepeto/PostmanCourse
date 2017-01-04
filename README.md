@@ -8,6 +8,7 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  2. Sending simple requests [ ]
  3. Understanding responses [ ]
  4. History & Tabs [ ]
+ 5. Settings [ ]
 3. Advanced request/response manipulation
  1. Working with headers [ ]
  2. Working with cookies [ ]
@@ -27,3 +28,7 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  4. Using generic javascript [ ]
  5. Running a collection multiple times [ ]
  6. Creating an environment [ ]
+6. Advanced postman testing
+ 1. Writing tests [ ]
+ 2. Testing examples [ ]
+ 3. Setting workflows [ ]
