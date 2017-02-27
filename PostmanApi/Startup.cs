@@ -7,6 +7,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Mvc.Formatters.Xml;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.AspNetCore.Http;
 
 namespace PostmanApi
 {
@@ -28,7 +32,15 @@ namespace PostmanApi
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddMvc();
+            services.AddMvc(options =>
+            {
+                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<HttpContext>(p => {
+                var contextAccessor = p.GetService<IHttpContextAccessor>();
+                return contextAccessor.HttpContext;
+            }); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
