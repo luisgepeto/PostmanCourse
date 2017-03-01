@@ -1,16 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Mvc.Formatters.Xml;
-using Microsoft.AspNetCore.Mvc.Formatters;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.AspNetCore.Http;
 
 namespace PostmanApi
 {
@@ -34,8 +27,9 @@ namespace PostmanApi
             // Add framework services.
             services.AddMvc(options =>
             {
-                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
-            });
+                options.RespectBrowserAcceptHeader = true; // false by default
+            }).AddXmlSerializerFormatters();
+   
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddTransient<HttpContext>(p => {
                 var contextAccessor = p.GetService<IHttpContextAccessor>();

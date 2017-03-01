@@ -83,10 +83,8 @@ namespace PostmanAPI.Controllers
         }
 
         [HttpPost("echobody")]
-        public object EchoBody(){
-            var bodyString = _context.Request.Body.ToString();
-            var body = JsonConvert.DeserializeObject(bodyString);   
-            return body;            
+        public object EchoBody([FromBody] object body){
+            return body;                    
         }
     }
 
