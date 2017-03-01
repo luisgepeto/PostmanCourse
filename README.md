@@ -9,7 +9,7 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  2. Sending simple requests [x]
 	a. GET http://google.com
 	b. GET http://postmanapi.com/api/basic/simple
- 3. Understanding responses [x]
+ 3. Understanding responses []
 	a. GET http://postmanapi.com/api/basic/simplejson (returns JSON)
 	b. GET http://postmanapi.com/api/basic/simplexml (returns JSON)
  4. History & Tabs [x]
@@ -27,7 +27,7 @@ Un repositorio con ejemplos y material para aprender a usar Postman
 	d. DELETE localhost:5000/api/manipulation/resource/1
  4. Sending request parameters [x]
  	a. GET localhost:5000/api/manipulation/echoparameters
- 5. Sending request body [x]
+ 5. Sending request body []
  	a. GET localhost:5000/api/manipulation/echobody
  6. Saving responses [x]
  	a. GET google.com
