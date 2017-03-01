@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 
 namespace PostmanAPI.Controllers
@@ -63,7 +64,7 @@ namespace PostmanAPI.Controllers
             _demoList.Add(oldResource);     
             var newResource = _demoList.FirstOrDefault(d => d.Id == demo.Id);
             var newString = string.Format("The new resource is: {0}", JsonConvert.SerializeObject(newResource));            
-            return string.Format("This method is updating a resource with the payload: {0}\n{1}\n{2}", jsonDemo,old, newString);
+            return string.Format("This method is updating a resource with id: {3} with the payload: {0}\n{1}\n{2}", jsonDemo,old, newString, resourceId);
         }
 
         [HttpDelete("resource/{resourceId}")]
@@ -73,6 +74,19 @@ namespace PostmanAPI.Controllers
             _demoList.Remove(resource);          
             var newCollection = string.Format("The new collection is: {0}", JsonConvert.SerializeObject(_demoList));
             return string.Format("This method is deleting the resource with id {0}\n{1}\n{2}", resourceId,old, newCollection);
+        }
+
+        [HttpGet("echoparameters")]
+        public Dictionary<string, string> EchoParameters(){
+            var parsedQuery = QueryHelpers.ParseQuery(_context.Request.QueryString.Value);
+            return parsedQuery.ToDictionary(q => q.Key, q => q.Value.FirstOrDefault());            
+        }
+
+        [HttpPost("echobody")]
+        public object EchoBody(){
+            var bodyString = _context.Request.Body.ToString();
+            var body = JsonConvert.DeserializeObject(bodyString);   
+            return body;            
         }
     }
 

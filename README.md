@@ -19,13 +19,22 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  1. Working with headers [x]
 	a. GET http://postmanapi.com/api/manipulation/echoheaders
  2. Working with cookies [x]
+ 	a. GET http://postmanapi.com/api/manipulation/echocookies
  3. Request methods [x]
- 4. Sending request parameters [ ]
- 5. Sending request body [ ]
- 6. Saving responses [ ]
-
+ 	a. GET localhost:5000/api/manipulation/resource/1
+	b. POST localhost:5000/api/manipulation/resource
+	c. PUT localhost:5000/api/manipulation/resource/1
+	d. DELETE localhost:5000/api/manipulation/resource/1
+ 4. Sending request parameters [x]
+ 	a. GET localhost:5000/api/manipulation/echoparameters
+ 5. Sending request body [x]
+ 	a. GET localhost:5000/api/manipulation/echobody
+ 6. Saving responses [x]
+ 	a. GET google.com
+	 
 4. Postman advanced
- 1. Exporting/Importing a request [ ]
+ 1. Exporting/Importing a request [x]
+ 	a. localhost:5000/api/advanced/importexport?sampleId=10
  2. Creating a collection [ ]
  3. Exporting/Importing a collection [ ]
  4. Requests as code snippets [ ]
