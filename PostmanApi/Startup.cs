@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace PostmanApi
 {
@@ -35,6 +36,18 @@ namespace PostmanApi
                 var contextAccessor = p.GetService<IHttpContextAccessor>();
                 return contextAccessor.HttpContext;
             }); 
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "PostmanAPI", Version = "v1" });
+                c.OrderActionsBy((apiDesc) => {
+                    switch(apiDesc.GroupName){
+                        default:
+                        return "a";
+                    }
+                });
+
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +57,11 @@ namespace PostmanApi
             loggerFactory.AddDebug();
 
             app.UseMvc();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
         }
     }
 }
