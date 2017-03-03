@@ -86,10 +86,5 @@ namespace PostmanAPI.Controllers
         public object EchoBody([FromBody] object body){
             return body;                    
         }
-    }
-
-    public class Demo{
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+    }    
 }

@@ -34,18 +34,24 @@ Un repositorio con ejemplos y material para aprender a usar Postman
 	 
 4. Postman advanced
  1. Exporting/Importing a request [x]
- 	a. localhost:5000/api/advanced/importexport?sampleId=10
+ 	a. GET localhost:5000/api/advanced/importexport?sampleId=10
  2. Creating a collection [x]
  3. Exporting/Importing a collection [x]
  4. Requests as code snippets [x]
 
 5. Postman for automation 
- 1. Using variables [ ]
- 2. Setting a variable for a request [ ]
- 3. Extracting data from a response [ ]
- 4. Using generic javascript [ ]
- 5. Running a collection multiple times [ ]
- 6. Creating an environment [ ]
+ 1. Creating an environment [x]
+ 2. Using variables [x]
+ 	a. GET localhost:5000/api/automation/echovariable/{{myvar}}
+ 3. Setting a variable for a request [x]
+ 	a. GET localhost:5000/api/automation/echovariable/{{myvar}}
+ 4. Extracting data from a response [x]
+ 	a. GET localhost:5000/api/automation/responsedata
+ 5. Chaining requests [x]
+ 	a. GET localhost:5000/api/automation/firstchained
+	b. GET localhost:5000/api/automation/secondchained
+ 6. Running a collection multiple times [ ]
+ 
 
 6. Advanced postman testing
  1. Writing tests [ ]
