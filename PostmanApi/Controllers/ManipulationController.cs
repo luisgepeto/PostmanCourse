@@ -14,15 +14,10 @@ namespace PostmanAPI.Controllers
     {
         private HttpContext _context;
         private List<Demo> _demoList;
-        public ManipulationController(HttpContext context)
+        public ManipulationController(HttpContext context, List<Demo> demoList)
         {
             _context = context;
-            _demoList = new List<Demo>(){
-                new Demo(){
-                    Id = 1,
-                    Name="Name 1"
-                }
-            };
+            _demoList = demoList;
         }
 
         [HttpGet("echoheaders")]

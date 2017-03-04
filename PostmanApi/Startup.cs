@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +11,12 @@ namespace PostmanApi
 {
     public class Startup
     {
+        private List<Demo> FakeRepository = new List<Demo>(){
+                    new Demo(){
+                        Id = 1,
+                        Name="Name 1"
+                    }
+                };
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -36,7 +43,7 @@ namespace PostmanApi
                 var contextAccessor = p.GetService<IHttpContextAccessor>();
                 return contextAccessor.HttpContext;
             }); 
-
+            services.AddSingleton<List<Demo>>(p => FakeRepository);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "PostmanAPI", Version = "v1" });

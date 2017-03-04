@@ -50,10 +50,12 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  5. Chaining requests [x]
  	a. GET localhost:5000/api/automation/firstchained
 	b. GET localhost:5000/api/automation/secondchained
- 6. Running a collection multiple times [ ]
- 
 
-6. Advanced postman testing
- 1. Writing tests [ ]
- 2. Testing examples [ ]
- 3. Setting workflows [ ]
+6. Advanced postman testing 
+ 1. Writing tests [x]
+ 	a. GET localhost:5000/api/testing/simpletest
+	b. PUT localhost:5000/api/testing/complextest/2
+ 2. Running a collection multiple times [x]
+ 	b. PUT localhost:5000/api/testing/randomerror
+ 3. Testing examples [ ]
+ 4. Setting workflows [ ]
