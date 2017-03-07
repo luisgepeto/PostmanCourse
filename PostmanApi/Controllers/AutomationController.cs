@@ -12,10 +12,12 @@ namespace PostmanAPI.Controllers
     [Route("api/[controller]")]
     public class AutomationController : Controller
     {
-        private HttpContext _context;        
-        public AutomationController(HttpContext context)
+        private HttpContext _context;  
+        private StateMachine _stateMachine;      
+        public AutomationController(HttpContext context, StateMachine stateMachine)
         {
             _context = context;
+            _stateMachine = stateMachine;
         }
         private const string _token = "This represents an authorization token";
         
@@ -42,6 +44,34 @@ namespace PostmanAPI.Controllers
             var authHeader =  _context.Request.Headers.Where(h => h.Key == "Authorization");
             if (authHeader.Any() && authHeader.Single().Value == _token) return Ok("You are authorized");
             return Unauthorized();
-        }        
+        }
+
+        [HttpGet("workflowstate")]
+        public IActionResult GetWorkflowCurrentState(){
+            return Ok(_stateMachine.GetCurrentState());
+        } 
+
+        [HttpGet("firstworkflow")]
+        public IActionResult GetFirstWorkflow(){            
+            return GetWorkflow(1);
+
+        }
+
+        [HttpGet("secondworkflow")]
+        public IActionResult PostSecondWorkflow(){
+            return GetWorkflow(2);
+        }
+
+        [HttpGet("thirdworkflow")]
+        public IActionResult GetThirdWorkflow(){
+            return GetWorkflow(3);
+        }
+
+        private IActionResult GetWorkflow(int stateId){            
+            if(_stateMachine.GetCurrentState().NextStateId != stateId)
+                return BadRequest("This not the next state that corresponds to the previous request");
+            _stateMachine.CurrentStateId = stateId;
+            return Ok(_stateMachine.GetCurrentState());
+        }
     }    
 }

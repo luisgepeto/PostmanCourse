@@ -16,7 +16,8 @@ namespace PostmanApi
                         Id = 1,
                         Name="Name 1"
                     }
-                };
+                };                
+        private StateMachine StateMachine = new StateMachine();
         public Startup(IHostingEnvironment env)
         {
             var builder = new ConfigurationBuilder()
@@ -44,6 +45,7 @@ namespace PostmanApi
                 return contextAccessor.HttpContext;
             }); 
             services.AddSingleton<List<Demo>>(p => FakeRepository);
+            services.AddSingleton(p => StateMachine);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "PostmanAPI", Version = "v1" });
