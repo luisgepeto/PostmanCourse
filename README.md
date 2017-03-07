@@ -57,10 +57,10 @@ Un repositorio con ejemplos y material para aprender a usar Postman
 	b. PUT localhost:5000/api/testing/complextest/2
  2. Running a collection multiple times [x]
  	b. PUT localhost:5000/api/testing/randomerror
- 3. Setting workflows [ ]
+ 3. Setting workflows [x]
  	a. GET localhost:5000/api/automation/workflowstate
 	b. GET localhost:5000/api/automation/firstworkflow
 	b. GET localhost:5000/api/automation/secondworkflow
 	b. GET localhost:5000/api/automation/thirdworkflow
- 4. Testing examples [ ]
+ 4. Testing examples [x]
  
