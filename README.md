@@ -9,7 +9,7 @@ Un repositorio con ejemplos y material para aprender a usar Postman
  2. Sending simple requests [x]
 	a. GET http://google.com
 	b. GET http://postmanapi.com/api/basic/simple
- 3. Understanding responses []
+ 3. Understanding responses [x]
 	a. GET http://postmanapi.com/api/basic/simplejson
 	b. GET http://postmanapi.com/api/basic/simplexml
  4. History & Tabs [x]

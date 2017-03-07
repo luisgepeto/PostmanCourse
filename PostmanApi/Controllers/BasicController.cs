@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 
 namespace PostmanAPI.Controllers
@@ -17,9 +14,9 @@ namespace PostmanAPI.Controllers
         }
 
         [HttpGet("simplejson")]
-        public object SimpleJson()
+        public ExtendedDemo SimpleJson()
         {
-            return new {
+            return new ExtendedDemo(){
                 Id = 1,
                 Name="Some Name", 
                 Children = new List<string>(){
@@ -29,9 +26,8 @@ namespace PostmanAPI.Controllers
         }
         
         [HttpGet("simplexml")]
-        public object SimpleXML()
-        {
-            //TODO this is not returning xml
+        public ExtendedDemo SimpleXML()
+        {            
             return SimpleJson();
         }
 

@@ -16,7 +16,7 @@ namespace PostmanApi
                         Id = 1,
                         Name="Name 1"
                     }
-                };                
+        };
         private StateMachine StateMachine = new StateMachine();
         public Startup(IHostingEnvironment env)
         {
@@ -37,25 +37,19 @@ namespace PostmanApi
             services.AddMvc(options =>
             {
                 options.RespectBrowserAcceptHeader = true; // false by default
-            }).AddXmlSerializerFormatters();
-   
+            }).AddXmlFormaterExtensions();
+
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-            services.AddTransient<HttpContext>(p => {
+            services.AddTransient<HttpContext>(p =>
+            {
                 var contextAccessor = p.GetService<IHttpContextAccessor>();
                 return contextAccessor.HttpContext;
-            }); 
+            });
             services.AddSingleton<List<Demo>>(p => FakeRepository);
             services.AddSingleton(p => StateMachine);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "PostmanAPI", Version = "v1" });
-                c.OrderActionsBy((apiDesc) => {
-                    switch(apiDesc.GroupName){
-                        default:
-                        return "a";
-                    }
-                });
-
             });
         }
 
