@@ -1,5 +1,14 @@
 # PostmanCourse
 Un repositorio con ejemplos y material para aprender a usar Postman
+Para correr el curso es necesario tener la version 1.0 de .NET core disponible en https://www.microsoft.com/net/download/core
+Posteriormente, dentro del directorio de PostmanAPI correr los siguientes comandos:
+
+```
+dotnet restore
+dotnet run
+```
+
+Una vez iniciado, es posible acceder a la pagina de ayuda a traves de la url [http://localhost:5000/swagger](http://localhost:5000/swagger) 
 
 ## Contents
 1. What is Postman and how can it help me do my job?
