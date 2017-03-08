@@ -1,6 +1,8 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace PostmanAPI.Controllers
 {
@@ -9,12 +11,19 @@ namespace PostmanAPI.Controllers
     {
         private HttpContext _context;  
         private StateMachine _stateMachine;      
-        public AutomationController(HttpContext context, StateMachine stateMachine)
+        private EnvironmentContainer _environmentContainer;
+        public AutomationController(HttpContext context, StateMachine stateMachine, EnvironmentContainer environmentContainer)
         {
             _context = context;
             _stateMachine = stateMachine;
+            _environmentContainer = environmentContainer;            
         }
         private const string _token = "This represents an authorization token";
+        
+        [HttpGet("environment")]
+        public EnvironmentContainer GetEnvironment(){
+            return _environmentContainer;
+        }
         
         [HttpGet("echovariable/{variableValue}")]
         public string EchoVariable(int variableValue){

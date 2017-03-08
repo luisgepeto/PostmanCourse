@@ -12,7 +12,7 @@ namespace PostmanApi
             var config = new ConfigurationBuilder()
                 .AddCommandLine(args)
                 .AddEnvironmentVariables(prefix: "ASPNETCORE_")
-                .Build();
+                .Build();                    
 
             var host = new WebHostBuilder()
                 .UseConfiguration(config)

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,8 +25,8 @@ namespace PostmanApi
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
-            Configuration = builder.Build();
+                .AddEnvironmentVariables();                
+            Configuration = builder.Build();            
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -47,6 +48,11 @@ namespace PostmanApi
             });
             services.AddSingleton<List<Demo>>(p => FakeRepository);
             services.AddSingleton(p => StateMachine);
+            services.AddSingleton(p => {
+                return new EnvironmentContainer(){
+                    EnvironmentName = Configuration["ASPNETCORE_ENVIRONMENT"]
+                };
+            });            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new Info { Title = "PostmanAPI", Version = "v1" });
