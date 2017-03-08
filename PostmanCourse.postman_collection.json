@@ -1,0 +1,388 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PostmanCourse",
+		"_postman_id": "85a2d79a-3199-c70f-ab63-47bd1875f271",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/api/basic/simple",
+			"request": {
+				"url": "localhost:5000/api/basic/simple",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/basic/simplejson",
+			"request": {
+				"url": "localhost:5000/api/basic/simplejson",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/basic/simplexml",
+			"request": {
+				"url": "localhost:5000/api/basic/simplexml",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/echoheaders",
+			"request": {
+				"url": "localhost:5000/api/manipulation/echoheaders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "SomeHeader",
+						"value": "my value",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/echocookies",
+			"request": {
+				"url": "localhost:5000/api/manipulation/echocookies",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/resource/1",
+			"request": {
+				"url": "localhost:5000/api/manipulation/resource/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/resource",
+			"request": {
+				"url": "localhost:5000/api/manipulation/resource",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":2,\n  \"name\":\"name 2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/resource/1",
+			"request": {
+				"url": "localhost:5000/api/manipulation/resource/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":1,\n  \"name\":\"name 2\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/resource/1",
+			"request": {
+				"url": "localhost:5000/api/manipulation/resource/1",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/echoparameters?someparameter=hello&otherparameter=goodbye&client_id=1",
+			"request": {
+				"url": "localhost:5000/api/manipulation/echoparameters?someparameter=hello&otherparameter=goodbye&client_id=1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/manipulation/echobody",
+			"request": {
+				"url": "localhost:5000/api/manipulation/echobody",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":1,\n  \"name\":\"my name\",\n  \"other\":\"i am some other property\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/environment",
+			"request": {
+				"url": "localhost:5000/api/automation/environment",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/echovariable/{{myvar}}",
+			"request": {
+				"url": "localhost:5000/api/automation/echovariable/{{myvar}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/echovariable/{{myvar}}",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"myvar\", \"1000\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/echovariable/{{myvar}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "this will run a script"
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/responsedata/1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"id\", jsonData.id);",
+							"postman.setEnvironmentVariable(\"name\", jsonData.name);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/responsedata/4",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/firstchained",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"",
+							"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/firstchained",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/secondchained",
+			"request": {
+				"url": "localhost:5000/api/automation/secondchained",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{token}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/testing/simpletest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request fue exitoso\"] = responseCode.code === 200;",
+							"var data = JSON.parse(responseBody);",
+							"tests[\"El id esperado es 1\"] = data.id === 1;",
+							"tests[\"El nombre esperado es hola\"] = data.name === \"hola\";"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/testing/simpletest",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/testing/complextest/2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request fue exitoso\"] = responseCode.code === 200;",
+							"var data = JSON.parse(responseBody);",
+							"if(tests[\"El request fue exitoso\"]){",
+							"    tests[\"El request seteo el nuevo nombre\"] = data.name = \"some other name\"",
+							"    tests[\"El request seteo el nuevo id\"] = data.id = 2    ",
+							"}",
+							"if(isNaN(environment.count)){",
+							"    postman.setEnvironmentVariable(\"count\", 0);",
+							"}",
+							"var environmentCount = environment.count;",
+							"tests[\"El request es un request multiplo de 5\"] = environmentCount % 5  === 0",
+							"environmentCount++;",
+							"postman.setEnvironmentVariable(\"count\", environmentCount);",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/testing/complextest/2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"id\":2,\n\"name\":\"some other name\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/testing/randomerror/{{randomId}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"La respuesta es exitosa\"] = responseCode.code === 200;",
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"El valor enviado es igual al recibido\"] =  jsonData.id == environment.randomId;"
+						]
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"postman.setEnvironmentVariable(\"randomId\", \"1\");"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/testing/randomerror/{{randomId}}",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,155 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PostmanWorkflow",
+		"_postman_id": "024e1a77-0c21-3e6b-2e90-bd7f5c4e77d2",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:5000/api/automation/workflowstate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request es exitoso\"] = responseCode.code === 200;",
+							"if(tests[\"El request es exitoso\"]){",
+							"var jsonData = JSON.parse(responseBody);",
+							"switch(jsonData.nextStateId) {",
+							"    case 1:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/firstworkflow\");",
+							"        break;",
+							"    case 2:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/secondworkflow\");",
+							"        break;",
+							"    case 3:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/thirdworkflow\");",
+							"        break;",
+							"}",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/workflowstate",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/thirdworkflow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request es exitoso\"] = responseCode.code === 200;",
+							"if(tests[\"El request es exitoso\"]){",
+							"var jsonData = JSON.parse(responseBody);",
+							"switch(jsonData.nextStateId) {",
+							"    case 1:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/firstworkflow\");",
+							"        break;",
+							"    case 2:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/secondworkflow\");",
+							"        break;",
+							"    case 3:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/thirdworkflow\");",
+							"        break;",
+							"}",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/thirdworkflow",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/secondworkflow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request es exitoso\"] = responseCode.code === 200;",
+							"if(tests[\"El request es exitoso\"]){",
+							"var jsonData = JSON.parse(responseBody);",
+							"switch(jsonData.nextStateId) {",
+							"    case 1:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/firstworkflow\");",
+							"        break;",
+							"    case 2:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/secondworkflow\");",
+							"        break;",
+							"    case 3:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/thirdworkflow\");",
+							"        break;",
+							"}",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/secondworkflow",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:5000/api/automation/firstworkflow",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"El request es exitoso\"] = responseCode.code === 200;",
+							"if(tests[\"El request es exitoso\"]){",
+							"var jsonData = JSON.parse(responseBody);",
+							"switch(jsonData.nextStateId) {",
+							"    case 1:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/firstworkflow\");",
+							"        break;",
+							"    case 2:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/secondworkflow\");",
+							"        break;",
+							"    case 3:",
+							"        postman.setNextRequest(\"localhost:5000/api/automation/thirdworkflow\");",
+							"        break;",
+							"}",
+							"}"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "localhost:5000/api/automation/firstworkflow",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
